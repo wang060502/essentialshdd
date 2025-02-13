@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优雅时尚 - 专业服装定制</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="公司logo" class="logo" id="menuToggle">
+        </div>
+        
+        <nav class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#products">产品展示</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#service">售后服务</a></li>
+                <li><a href="#contact">联系我们</a></li>
+                <li class="language-selector">
+                    <div class="select-wrapper">
+                      
+                        <select id="language" onchange="changeLanguage(this.value)">
+                            <option value="zh">中文</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                     
+                    </div>
+                </li>
+                <li class="theme-switch">
+                    <button id="themeToggle" class="theme-toggle-btn">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主页横幅 -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>优质服装定制专家</h1>
+            <p class="hero-subtitle">为您提供高品质的服装定制体验</p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-industry"></i>
+                    <h3>批量定制</h3>
+                    <p>专业工厂生产，支持大批量订制</p>
+                </div>
+                <!-- <div class="feature-item">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>专业定制</h3>
+                    <p>20年制衣经验，精工细作</p>
+                </div> -->
+                <div class="feature-item">
+                    <i class="fas fa-gem"></i>
+                    <h3>优质面料</h3>
+                    <p>精选进口面料，舒适耐用</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cut"></i>
+                    <h3>私人定制</h3>
+                    <p>专业量体，贴心服务</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-boxes"></i>
+                    <h3>品牌批发</h3>
+                    <p>品牌服装批发，价格优惠</p>
+                </div>
+ 
+            </div>
+            <div class="hero-buttons">
+                <a href="#products" class="cta-button primary">浏览产品</a>
+                <a href="#contact" class="cta-button secondary">联系我们</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-text">年行业经验</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50000+</span>
+                    <span class="stat-text">成功案例</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-text">客户好评</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 产品展示区 -->
+    <section id="products" class="products">
+        <h2>产品展示</h2>
+        <div class="product-categories">
+            <button class="category-btn active">全部</button>
+            <button class="category-btn">卫衣</button>
+            <button class="category-btn">卫裤</button>
+            <button class="category-btn">短袖</button>
+            <button class="category-btn">短裤</button>
+        </div>
+        
+        <div class="product-carousel-container">
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="product-carousel">
+                <div class="product-track">
+                    <!-- 产品项重复两次以实现无缝效果 -->
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="./img/image.png" alt="商务西裤">
+                        <h3>商务西裤</h3>
+                        <p>修身剪裁，尽显品质</p>
+                    </div>
+                    <!-- 添加更多产品卡片 -->
+                </div>
+            </div>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- 定制需求 -->
+    <section id="custom-order" class="custom-order-section">
+        <div class="container">
+            <h2>定制需求</h2>
+            <form id="customOrderForm" class="custom-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">客户姓名 <span class="required">*</span></label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">联系电话 <span class="required">*</span></label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productType">产品类型 <span class="required">*</span></label>
+                        <select id="productType" name="productType" required>
+                            <option value="">请选择产品类型</option>
+                            <option value="hoodie">卫衣</option>
+                            <option value="sweatpants">卫裤</option>
+                            <option value="tshirt">短袖</option>
+                            <option value="shorts">短裤</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">预计数量 <span class="required">*</span></label>
+                        <input type="number" id="quantity" name="quantity" min="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="requirements">具体需求描述 <span class="required">*</span></label>
+                    <textarea id="requirements" name="requirements" rows="5" placeholder="请详细描述您的定制需求，包括面料偏好、款式特点、尺码要求等..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expectedDate">期望交付日期</label>
+                        <input type="date" id="expectedDate" name="expectedDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">预算范围</label>
+                        <select id="budget" name="budget">
+                            <option value="">请选择预算范围</option>
+                            <option value="1">5万以下</option>
+                            <option value="2">5-10万</option>
+                            <option value="3">10-50万</option>
+                            <option value="4">50万以上</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="attachments">上传参考图片</label>
+                    <input type="file" id="attachments" name="attachments" accept="image/*" multiple>
+                    <small class="form-text">支持jpg、png格式</small>
+                </div>
+
+                <button type="submit" class="submit-button">提交定制需求</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 支付系统 -->
+    <section id="payment" class="payment-section">
+        <div class="container">
+            <h2>支付方式</h2>
+            <div class="payment-container">
+                <div class="payment-methods">
+                    <!-- 第一组 -->
+                    <div class="payment-option">
+                        <i class="fab fa-paypal"></i>
+                        <span>PayPal</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Visa</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Mastercard</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-stripe"></i>
+                        <span>Stripe</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-alipay"></i>
+                        <span>Alipay</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-apple-pay"></i>
+                        <span>Apple Pay</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-google-pay"></i>
+                        <span>Google Pay</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-amazon-pay"></i>
+                        <span>Amazon Pay</span>
+                    </div>
+                    <!-- 复制第一组实现无缝效果 -->
+                    <div class="payment-option">
+                        <i class="fab fa-paypal"></i>
+                        <span>PayPal</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Visa</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Mastercard</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-stripe"></i>
+                        <span>Stripe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 售后服务表单 -->
+    <section id="service" class="service-form">
+        <div class="container">
+            <h2>售后服务</h2>
+            <form id="afterSaleForm">
+                <div class="form-group">
+                    <label for="orderNumber">订单号</label>
+                    <input type="text" id="orderNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="issue">问题描述</label>
+                    <textarea id="issue" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">提交售后申请</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 客服服务 -->
+    <section id="customer-service" class="customer-service-section">
+        <div class="container">
+            <h2>在线客服服务</h2>
+            <p class="service-intro">我们提供多种联系方式，随时为您解答问题</p>
+            
+            <div class="service-options">
+                <div class="service-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp咨询</h3>
+                    <p>工作时间: 24/7</p>
+                    <p class="contact-info">+44 07562431158</p>
+                    <a href="https://wa.me/4407562431158" class="contact-button" target="_blank">立即咨询</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="far fa-envelope"></i>
+                    <h3>邮件支持</h3>
+                    <p>工作时间: 24/7</p>
+                    <p class="contact-info">xiaoc2525@gmail.com</p>
+                    <a href="mailto:xiaoc2525@gmail.com" class="contact-button">发送邮件</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <h3>Facebook联系</h3>
+                    <p>工作时间: 24/7</p>
+                    <p class="contact-info">ESSENTIALS-BUY 官方</p>
+                    <a href="https://www.facebook.com/profile.php?id=61569970310561" class="contact-button" target="_blank">前往主页</a>
+                </div>
+            </div>
+
+            <div class="service-notice">
+                <i class="fas fa-info-circle"></i>
+                <p>温馨提示：</p>
+                <ul>
+                    <li>建议优先使用WhatsApp联系，可获得最快回复</li>
+                    <li>复杂业务问题建议通过邮件详细描述</li>
+                    <li>Facebook主页可查看更多产品信息和评价</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>联系我们</h2>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+44 07562431158</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>xiaoc2525@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>安徽省合肥市高新区长江西路昌河科创大厦403室</p>
+                </div>
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">留言</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">发送消息</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>关于我们</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>一起发展服饰有限公司</h3>
+                    <p class="company-intro">成立于2024年，位于安徽省合肥市，是一家专注于高品质服装定制的现代化企业。作为ESSENTIALS品牌的官方供应商，我们支持对假冒商品进行合法性核查。我们始终秉持"质量至上、客户为先"的经营理念，致力于为全球客户提供卓越的服装定制解决方案。</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-medal"></i>
+                            <h4>专业制造</h4>
+                            <p>拥有现代化生产线，年产能超过100万件</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-certificate"></i>
+                            <h4>品质保证</h4>
+                            <p>ISO9001质量管理体系认证</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-globe-americas"></i>
+                            <h4>全球业务</h4>
+                            <p>产品出口至40多个国家和地区</p>
+                        </div>
+                    </div>
+
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">13</span>
+                            <span class="stat-label">年行业经验</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">企业客户</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">客户满意度</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>专注于提供高品质服装定制服务</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#products">产品展示</a></li>
+                        <li><a href="#service">售后服务</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61569970310561" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/kiev617/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="whatsapp-link" title="+44 07562431158" data-whatsapp="+44 07562431158">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:xiaoc2525@gmail.com" class="email-link" title="xiaoc2525@gmail.com" data-email="xiaoc2525@gmail.com">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 优雅时尚. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/whatsapp.js"></script>
+</body>
+</html>
