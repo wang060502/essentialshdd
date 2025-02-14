@@ -176,4 +176,122 @@ function initMobileNav() {
 }
 
 // 初始化导航菜单
-document.addEventListener('DOMContentLoaded', initMobileNav); 
+document.addEventListener('DOMContentLoaded', initMobileNav);
+
+// 处理支付方式切换的函数
+function handlePaymentMethodChange() {
+    const paymentMethod = document.getElementById('paymentMethod');
+    const paymentInfoSection = document.getElementById('paymentInfoSection');
+    const onlineInfo = document.getElementById('onlineInfo');
+    const alipayInfo = document.getElementById('alipayInfo');
+    const wechatInfo = document.getElementById('wechatInfo');
+    const bankInfo = document.getElementById('bankInfo');
+
+    // 首先隐藏所有支付信息
+    onlineInfo.style.display = 'none';
+    alipayInfo.style.display = 'none';
+    wechatInfo.style.display = 'none';
+    bankInfo.style.display = 'none';
+
+    // 根据选择的支付方式显示对应信息
+    if (paymentMethod.value) {
+        paymentInfoSection.style.display = 'block';
+        
+        switch (paymentMethod.value) {
+            case 'online':
+                onlineInfo.style.display = 'block';
+                break;
+            case 'alipay':
+                alipayInfo.style.display = 'block';
+                break;
+            case 'wechat':
+                wechatInfo.style.display = 'block';
+                break;
+            case 'bank':
+                bankInfo.style.display = 'block';
+                break;
+            default:
+                paymentInfoSection.style.display = 'none';
+        }
+    } else {
+        paymentInfoSection.style.display = 'none';
+    }
+}
+
+// 添加付款凭证预览功能
+function handlePaymentProofUpload() {
+    const input = document.getElementById('paymentProof');
+    input.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            // 验证文件类型
+            if (!file.type.startsWith('image/')) {
+                alert('请上传图片文件');
+                input.value = '';
+                return;
+            }
+            
+            // 验证文件大小（最大5MB）
+            if (file.size > 5 * 1024 * 1024) {
+                alert('文件大小不能超过5MB');
+                input.value = '';
+                return;
+            }
+        }
+    });
+}
+
+// 表单验证
+function validateOrderForm() {
+    const form = document.getElementById('orderForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // 验证必填字段
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('error');
+            } else {
+                field.classList.remove('error');
+            }
+        });
+        
+        if (!isValid) {
+            alert('请填写所有必填字段');
+            return;
+        }
+        
+        // 验证支付凭证是否上传
+        const paymentProof = document.getElementById('paymentProof');
+        if (!paymentProof.files.length) {
+            alert('请上传付款凭证');
+            return;
+        }
+        
+        // 如果验证通过，可以提交表单
+        // 这里可以添加表单提交的逻辑
+        console.log('表单验证通过，准备提交...');
+    });
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化订单金额计算
+    const orderQuantity = document.getElementById('orderQuantity');
+    const orderPrice = document.getElementById('orderPrice');
+    
+    if (orderQuantity && orderPrice) {
+        orderQuantity.addEventListener('input', calculateTotal);
+        orderPrice.addEventListener('input', calculateTotal);
+    }
+    
+    // 初始化付款凭证上传
+    handlePaymentProofUpload();
+    
+    // 初始化表单验证
+    validateOrderForm();
+}); 

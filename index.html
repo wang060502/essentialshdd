@@ -221,7 +221,209 @@
             </form>
         </div>
     </section>
-    
+
+    <!-- 订单创建与支付部分 -->
+    <section id="order-creation" class="order-creation-section">
+        <div class="container">
+            <h2>创建订单</h2>
+            <form id="orderForm" class="order-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="salesPerson">选择业务员 <span class="required">*</span></label>
+                        <select id="salesPerson" name="salesPerson" required>
+                            <option value="">请选择业务员</option>
+                            <option value="1">张经理</option>
+                            <option value="2">李经理</option>
+                            <option value="3">王经理</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 收货信息 -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="receiverName">收货人姓名 <span class="required">*</span></label>
+                        <input type="text" id="receiverName" name="receiverName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="receiverPhone">收货人电话 <span class="required">*</span></label>
+                        <input type="tel" id="receiverPhone" name="receiverPhone" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="address">详细地址 <span class="required">*</span></label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+
+                <!-- 订单详细信息 -->
+                <div class="form-group full-width">
+                    <label for="orderDetails">订单详细信息 <span class="required">*</span></label>
+                    <textarea id="orderDetails" name="orderDetails" rows="4" required 
+                        placeholder="请填写订单详细信息，包括：商品规格、颜色、尺码等"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="orderQuantity">订单数量 <span class="required">*</span></label>
+                        <input type="number" id="orderQuantity" name="orderQuantity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalAmount">总金额 <span class="required">*</span></label>
+                        <input type="number" 
+                               id="totalAmount" 
+                               name="totalAmount" 
+                               min="0" 
+                               step="0.01" 
+                               placeholder="请输入订单金额" 
+                               required>
+                    </div>
+                </div>
+
+                <!-- 支付方式选择（移到最后） -->
+                <div class="form-group full-width">
+                    <label for="paymentMethod">支付方式 <span class="required">*</span></label>
+                    <select id="paymentMethod" name="paymentMethod" required onchange="handlePaymentMethodChange()">
+                        <option value="">请选择支付方式</option>
+                        <option value="online">在线支付</option>
+                        <option value="bank">银行转账</option>
+                        <option value="alipay">支付宝</option>
+                        <option value="wechat">微信支付</option>
+                    </select>
+                </div>
+
+                <!-- 支付账户信息部分 -->
+                <div id="paymentInfoSection" class="payment-info-section" style="display: none;">
+                    <div class="payment-info-container">
+                        <h3 class="payment-title">支付账户信息</h3>
+                        <!-- 支付宝信息 -->
+                        <div id="alipayInfo" class="payment-details" style="display: none;">
+                            <div class="payment-header">
+                                <i class="fab fa-alipay payment-icon"></i>
+                                <h4>支付宝支付</h4>
+                            </div>
+                            <div class="payment-content">
+                                <div class="account-info">
+                                    <div class="info-row">
+                                        <i class="fas fa-user"></i>
+                                        <span class="label">收款人：</span>
+                                        <span class="value">张三</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <i class="fas fa-at"></i>
+                                        <span class="label">支付宝账号：</span>
+                                        <span class="value">example@alipay.com</span>
+                                    </div>
+                                </div>
+                                <div class="qr-code-container">
+                                    <img src="path/to/alipay-qr.jpg" alt="支付宝二维码">
+                                    <p>扫码支付</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 微信支付信息 -->
+                        <div id="wechatInfo" class="payment-details" style="display: none;">
+                            <div class="payment-header">
+                                <i class="fab fa-weixin payment-icon"></i>
+                                <h4>微信支付</h4>
+                            </div>
+                            <div class="payment-content">
+                                <div class="account-info">
+                                    <div class="info-row">
+                                        <i class="fas fa-id-card"></i>
+                                        <span class="label">微信账号：</span>
+                                        <span class="value">wxid_example</span>
+                                    </div>
+                                </div>
+                                <div class="qr-code-container">
+                                    <img src="path/to/wechat-qr.jpg" alt="微信支付二维码">
+                                    <p>扫码支付</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 银行账户信息 -->
+                        <div id="bankInfo" class="payment-details" style="display: none;">
+                            <div class="payment-header">
+                                <i class="fas fa-university payment-icon"></i>
+                                <h4>银行转账</h4>
+                            </div>
+                            <div class="payment-content">
+                                <div class="account-info">
+                                    <div class="info-row">
+                                        <i class="fas fa-landmark"></i>
+                                        <span class="label">开户行：</span>
+                                        <span class="value">中国工商银行合肥分行</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <i class="fas fa-user"></i>
+                                        <span class="label">账户名：</span>
+                                        <span class="value">一起发展服饰有限公司</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span class="label">账号：</span>
+                                        <span class="value">6222 **** **** 1234</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 在线支付信息 -->
+                        <div id="onlineInfo" class="payment-details" style="display: none;">
+                            <div class="payment-header">
+                                <i class="fas fa-credit-card payment-icon"></i>
+                                <h4>在线支付</h4>
+                            </div>
+                            <div class="payment-content">
+                                <div class="online-payment-options">
+                                    <div class="payment-card">
+                                        <input type="radio" id="visa" name="onlinePayment" value="visa">
+                                        <label for="visa">
+                                            <img src="path/to/visa-logo.png" alt="Visa">
+                                        </label>
+                                    </div>
+                                    <div class="payment-card">
+                                        <input type="radio" id="mastercard" name="onlinePayment" value="mastercard">
+                                        <label for="mastercard">
+                                            <img src="path/to/mastercard-logo.png" alt="Mastercard">
+                                        </label>
+                                    </div>
+                                    <div class="payment-card">
+                                        <input type="radio" id="paypal" name="onlinePayment" value="paypal">
+                                        <label for="paypal">
+                                            <img src="path/to/paypal-logo.png" alt="PayPal">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="payment-action">
+                                    <button type="button" class="proceed-payment-btn">
+                                        <i class="fas fa-lock"></i>
+                                        安全支付
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 付款凭证上传 -->
+                <div class="form-group full-width">
+                    <label for="paymentProof">上传付款凭证 <span class="required">*</span></label>
+                    <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required>
+                    <small class="form-text">请上传付款截图或转账凭证（支持jpg、png格式）</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-button">提交订单</button>
+                    <button type="button" class="cancel-button">取消</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- 支付系统 -->
     <section id="payment" class="payment-section">
         <div class="container">

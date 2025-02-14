@@ -2208,3 +2208,330 @@ body {
         padding: 6px 10px;
     }
 }
+
+/* 订单创建部分样式 */
+.order-creation-section {
+    padding: 60px 0;
+    background-color: var(--bg-color);
+}
+
+.order-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.bank-info-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 8px;
+}
+
+.bank-details {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.payment-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alipay-btn {
+    background-color: #00a0e9;
+    color: white;
+}
+
+.wechat-btn {
+    background-color: #07c160;
+    color: white;
+}
+
+.copy-bank-info-btn {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-bank-info-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cancel-button {
+    background-color: var(--gray-color);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 支付信息区域样式 */
+.payment-info-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    position: relative;
+}
+
+.payment-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #4a90e2;
+    margin: 10px auto;
+}
+
+.payment-details {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-icon {
+    font-size: 2em;
+    margin-right: 15px;
+}
+
+.payment-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.payment-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.account-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.info-row i {
+    margin-right: 10px;
+    color: #4a90e2;
+    width: 20px;
+    text-align: center;
+}
+
+.info-row .label {
+    color: #666;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.info-row .value {
+    color: #333;
+    font-weight: 600;
+}
+
+.qr-code-container {
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.qr-code-container img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.qr-code-container p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 支付宝特定样式 */
+#alipayInfo .payment-icon {
+    color: #00a0e9;
+}
+
+/* 微信支付特定样式 */
+#wechatInfo .payment-icon {
+    color: #07c160;
+}
+
+/* 银行转账特定样式 */
+#bankInfo .payment-icon {
+    color: #4a90e2;
+}
+
+/* 在线支付容器样式 */
+.online-payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+/* 支付卡片样式 */
+.payment-card {
+    position: relative;
+    width: 100%;
+}
+
+.payment-card input[type="radio"] {
+    display: none;
+}
+
+.payment-card label {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-card label:hover {
+    border-color: #4a90e2;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);
+}
+
+.payment-card input[type="radio"]:checked + label {
+    border-color: #4a90e2;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(74, 144, 226, 0.15);
+}
+
+.payment-card label img {
+    height: 30px;
+    object-fit: contain;
+}
+
+/* 支付按钮容器 */
+.payment-action {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+/* 支付按钮样式 */
+.proceed-payment-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+}
+
+.proceed-payment-btn:hover {
+    background: linear-gradient(45deg, #357abd, #2868a0);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.proceed-payment-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+}
+
+.proceed-payment-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* 支付方式标题样式 */
+.payment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.payment-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.payment-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    color: #4a90e2;
+}
+
+/* 响应式调整 */
+@media (min-width: 768px) {
+    .online-payment-options {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .payment-card {
+        flex: 1;
+        min-width: 200px;
+    }
+}
