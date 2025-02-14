@@ -1615,7 +1615,8 @@ p, span, div {
 }
 
 .logo-container {
-    z-index: 1001;
+    position: relative;
+    z-index: 999; /* 降低公司名称的层级 */
 }
 
 .logo {
@@ -1629,8 +1630,19 @@ p, span, div {
 }
 
 .nav-menu {
-    display: flex;
-    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000; /* 确保侧边栏层级高于公司名称 */
+}
+
+.nav-menu.active {
+    right: 0;
 }
 
 /* 默认导航菜单样式 */
@@ -2211,6 +2223,7 @@ p, span, div {
 [data-theme="light"] .feature-item:hover p,
 [data-theme="light"] .feature-item:hover i {
     color: #fff;
+    background: #1E90FF;
 }
 
 /* 基础卡片样式 */
@@ -2413,5 +2426,38 @@ p, span, div {
 @media (max-width: 768px) {
     .service-options {
         grid-template-columns: 1fr;
+    }
+}
+
+.company-name {
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.company-name:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .company-name {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.1rem;
+        padding: 6px 10px;
     }
 }
