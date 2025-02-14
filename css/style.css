@@ -1004,6 +1004,10 @@ section {
     cursor: pointer;
 }
 
+.form-group input[type="file"]:hover {
+    border-color: var(--primary-color);
+}
+
 .form-text {
     display: block;
     margin-top: 5px;
@@ -1385,289 +1389,47 @@ body {
 
 /* 更新其他元素的颜色 */
 .header {
-    background-color: var(--header-bg);
-    box-shadow: 0 2px 10px var(--shadow);
-}
-
-.nav-links a {
-    color: var(--text-color);
-}
-
-.custom-form, .service-form form {
-    background-color: var(--card-bg);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    background-color: var(--input-bg);
-    border-color: var(--border-color);
-    color: var(--input-text);
-}
-
-.about-section {
-    background-color: var(--secondary-bg);
-}
-
-.footer {
-    background-color: var(--secondary-bg);
-}
-
-/* 更新必填标记的颜色 */
-.required {
-    color: #ff4444;
-}
-
-/* 确保所有文本元素都使用正确的颜色 */
-[data-theme="dark"] {
-    --heading-color: #ffffff;
-    --subtext-color: #cccccc;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-}
-
-p, span, div {
-    color: var(--text-color);
-}
-
-/* 更新输入框占位符颜色 */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--placeholder-color);
-}
-
-/* 更新标签文字颜色 */
-.form-group label {
-    color: var(--text-color);
-    margin-bottom: 8px;
-    display: block;
-}
-
-/* 更新选择框箭头颜色 */
-.form-group select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-}
-
-[data-theme="light"] .form-group select {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-}
-
-/* 更新文件上传按钮样式 */
-.form-group input[type="file"] {
-    border: 2px dashed var(--border-color);
-    background-color: transparent;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.form-group input[type="file"]:hover {
-    border-color: var(--primary-color);
-}
-
-/* 更新小文本提示样式 */
-.form-text {
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 0.875rem;
-    margin-top: 5px;
-}
-
-/* 确保所有文本元素都使用正确的颜色 */
-[data-theme="dark"] {
-    --heading-color: #ffffff;
-    --subtext-color: #cccccc;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-}
-
-p, span, div {
-    color: var(--text-color);
-}
-
-/* 更新必填标记的颜色 */
-.required {
-    color: #ff4444;
-}
-
-/* 底部信息样式 */
-.footer {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 40px 0;
-}
-
-.footer-content,
-.footer a,
-.footer p,
-.footer span,
-.footer h3,
-.footer h4,
-.footer .contact-info,
-.footer .social-links {
-    color: #ffffff;
-}
-
-.footer .social-links a {
-    color: #ffffff;
-    transition: color 0.3s ease;
-}
-
-.footer .social-links a:hover {
-    color: var(--primary-color);
-}
-
-/* 表单标签颜色 */
-.form-group label {
-    color: #333333;
-}
-
-/* 输入框占位符颜色 */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #888888;
-}
-
-/* 确保底部所有文字为白色 */
-.footer * {
-    color: #ffffff !important;
-}
-
-/* 底部分割线 */
-.footer hr {
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* 底部版权信息 */
-.footer .copyright {
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* 深色模式的表单样式 */
-[data-theme="dark"] {
-    --input-bg: #2d2d2d;      /* 输入框背景色改为深色 */
-    --input-border: #404040;   /* 输入框边框颜色 */
-    --input-text: #ffffff;     /* 输入框文字颜色为白色 */
-    --input-focus-bg: #363636; /* 输入框焦点时的背景色 */
-}
-
-/* 深色模式下的输入框样式 */
-[data-theme="dark"] .form-group input,
-[data-theme="dark"] .form-group select,
-[data-theme="dark"] .form-group textarea {
-    background-color: var(--input-bg);
-    border: 1px solid var(--input-border);
-    color: var(--input-text);
-}
-
-/* 深色模式下输入框焦点状态 */
-[data-theme="dark"] .form-group input:focus,
-[data-theme="dark"] .form-group select:focus,
-[data-theme="dark"] .form-group textarea:focus {
-    background-color: var(--input-focus-bg);
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(77, 159, 255, 0.2);
-}
-
-/* 深色模式下的占位符文字颜色 */
-[data-theme="dark"] .form-group input::placeholder,
-[data-theme="dark"] .form-group textarea::placeholder {
-    color: #888888;
-}
-
-/* 深色模式下的选择框样式 */
-[data-theme="dark"] .form-group select {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-}
-
-/* 深色模式下的标签文字颜色 */
-[data-theme="dark"] .form-group label {
-    color: #ffffff;
-}
-
-/* 深色模式下的表单背景 */
-[data-theme="dark"] .custom-form {
-    background-color: var(--card-bg);
-    border: none;
-}
-
-/* 响应式导航栏样式 */
-.header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-}
-
-.logo-container {
-    position: relative;
-    z-index: 999; /* 降低公司名称的层级 */
-}
-
-.logo {
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
+    padding: 1rem 2rem;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 1000; /* 确保侧边栏层级高于公司名称 */
-}
-
-.nav-menu.active {
+    position: relative; /* 默认为普通文档流 */
     right: 0;
+    width: auto;
+    height: auto;
+    background: none;
+    box-shadow: none;
 }
 
-/* 默认导航菜单样式 */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
+    gap: 2rem;
     list-style: none;
 }
 
-/* 响应式样式 */
+/* 移动端样式 */
 @media (max-width: 768px) {
+    #menuToggle {
+        display: block; /* 在移动端显示菜单按钮 */
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
+        right: -300px;
+        width: 300px;
         height: 100vh;
-        background-color: var(--header-bg);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--bg-color);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
-        padding: 80px 20px 20px;
+        z-index: 1000;
+        padding-top: 60px;
     }
 
     .nav-menu.active {
@@ -1676,23 +1438,8 @@ p, span, div {
 
     .nav-links {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 10px 0;
-    }
-
-    /* 语言选择器和主题切换按钮在移动端的样式 */
-    .language-selector,
-    .theme-switch {
-        margin: 10px 0;
+        gap: 1rem;
+        padding: 1rem;
     }
 }
 
