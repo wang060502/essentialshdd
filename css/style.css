@@ -1412,7 +1412,34 @@ body {
     gap: 2rem;
     list-style: none;
 }
+/* 平板设备响应式调整 */
+@media screen and (max-width: 830px) {
+    .header {
+        display: flex;
+        /* justify-content: space-between; */
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--bg-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1100px;
+    }
+    /* .logo-container span{
+        font-size: 0.8rem;
+    } */
+    .nav-links {
+        gap: 1rem; /* 减小导航项之间的间距 */
+        margin-left: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
 
+    }
+    
+}
 /* 移动端样式 */
 @media (max-width: 768px) {
     #menuToggle {
@@ -1750,9 +1777,19 @@ body {
     }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
     .product-card {
-        width: calc(25% - 30px);
+        width: calc(15% - 30px);
+        margin: 0 10px;
+    }
+    
+    .product-info {
+        padding: 12px;
+    }
+}
+@media (min-width: 768px) {
+    .product-card {
+        width: calc(20% - 30px);
         margin: 0 10px;
     }
     
@@ -2342,13 +2379,30 @@ body {
 
 .payment-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: space-between;
+    align-items: flex-start; */
+    font-size: 1rem; /* 基础字体大小 */
 }
 
+@media (max-width: 768px) {
+    .payment-content {
+        flex-direction: column; /* 小屏幕时切换为上下排版 */
+        align-items: flex-start;
+    }
+
+    .payment-content span {
+        font-size: 0.875rem; /* 在小屏幕上减小文字大小 */
+    }
+}
+
+
 .account-info {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    padding-right: 20px;
+    /* padding-right: 20px; */
 }
 
 .info-row {
@@ -2387,8 +2441,8 @@ body {
 }
 
 .qr-code-container img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 10px;
 }
 
@@ -2436,6 +2490,7 @@ body {
 
 .payment-card label {
     display: flex;
+    gap: 10px;
     align-items: center;
     padding: 15px 20px;
     background: #ffffff;
@@ -2533,5 +2588,59 @@ body {
     .payment-card {
         flex: 1;
         min-width: 200px;
+    }
+}
+
+.supported-cards {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.supported-cards .support-text {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2rem;  /* 增大文字大小 */
+    font-weight: 500;   /* 加粗文字 */
+}
+
+.card-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;         /* 增加图标间距 */
+    flex-wrap: wrap;
+}
+
+.card-icons i {
+    font-size: 3rem;   /* 增大图标大小 */
+    color: #2c3e50;
+    transition: transform 0.3s ease;
+}
+
+.card-icons i:hover {
+    transform: scale(1.1);  /* 添加悬停效果 */
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .supported-cards .support-text {
+        font-size: 1.1rem;
+    }
+    
+    .card-icons i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .supported-cards .support-text {
+        font-size: 1rem;
+    }
+    
+    .card-icons i {
+        font-size: 2rem;
+    }
+    
+    .card-icons {
+        gap: 20px;
     }
 }

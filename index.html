@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>优雅时尚 - 专业服装定制</title>
+    <meta name="robots" content="index, follow"> <!-- 允许搜索引擎抓取并跟踪链接 -->
+       <!-- 网站名称与描述 -->
+       <title>一起发展服饰公司 - 专业服装定制</title>
+    <meta name="description" content="一起发展服饰公司提供高品质、个性化的服装定制服务，专业设计与精细制作，为客户量身打造时尚衣橱，适合各种场合需求。">
+    <!-- 关键词 -->
+    <meta name="keywords" content="一起发展服饰, 服装定制, 时尚服装, 男装定制, 女装定制, 高端定制, 量身定制, 个性化设计, 专业定制服装, 定制服装公司">
+    <!-- 作者 -->
+    <meta name="author" content="一起发展服饰公司">
+    <!-- Open Graph 数据 (社交媒体分享) -->
+    <meta property="og:title" content="一起发展服饰公司 - 专业服装定制">
+    <meta property="og:description" content="一起发展服饰公司致力于为客户提供个性化的服装定制服务。通过精细设计和高质量制作，我们为您打造独特的时尚风格。">
+    <meta property="og:image" content="path/to/your-image.jpg"> <!-- 可用你网站的图片链接 -->
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:type" content="website">
+    <!-- Twitter 数据 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="一起发展服饰公司 - 专业服装定制">
+    <meta name="twitter:description" content="一起发展服饰公司提供量身定制服务，为客户量身打造独特的时尚衣橱。">
+    <meta name="twitter:image" content="path/to/your-image.jpg">    
     <link rel="stylesheet" href="css/style.css">
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="./js/translate.js"></script>
 </head>
+
+
 <body>
     <!-- 导航栏 -->
     <header class="header">
@@ -19,19 +40,67 @@
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#products">产品展示</a></li>
+                <li><a href="#custom-order">需求定制</a></li>
+                <li><a href="#order-creation">订单创建</a></li>
                 <li><a href="#about">关于我们</a></li>
                 <li><a href="#service">售后服务</a></li>
                 <li><a href="#contact">联系我们</a></li>
                 <li class="language-selector">
                     <div class="select-wrapper">
-                      
+                        <!-- 支持中文和东南亚一些语言、日韩以及欧洲一些语言 -->
                         <select id="language" onchange="changeLanguage(this.value)">
-                            <option value="zh">中文</option>
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                            <option value="ja">日本語</option>
+                            <option value="chinese_simplified">简体中文</option>
+                            <option value="chinese_traditional">繁体中文</option>
+                            <option value="english">English</option>
+                            <option value="korean">한국어 (Korean)</option>
+                            <option value="japanese">日本語 (Japanese)</option>
+                            <option value="french">Français (French)</option>
+                            <option value="italian">Italiano (Italian)</option>
+                            <option value="deutsch">Deutsch (German)</option>
+                            <option value="thai">ไทย (Thai)</option>
+                            <option value="vietnamese">Tiếng Việt (Vietnamese)</option>
+                            <option value="indonesian">Bahasa Indonesia (Indonesian)</option>
+                            <option value="malay">Bahasa Melayu (Malay)</option>
                         </select>
-                     
+                  
+                        <!-- 多国语言翻译服务 -->
+                        <script>
+                            function changeLanguage(lang) {
+                                console.log('选择的语言:',lang);
+                                
+                                // 存储用户选择的语言
+                                localStorage.setItem('preferredLanguage', lang);
+                                
+                                // 设置翻译
+                                translate.changeLanguage(lang);
+                                
+                                // 根据不同语言调整方向（针对从右到左的语言）
+                                document.documentElement.lang = lang;
+                                
+                                // 刷新翻译
+                                translate.execute();
+                            }
+                            
+                            // 页面加载时检查并应用已保存的语言设置
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const savedLang = localStorage.getItem('preferredLanguage');
+                                if (savedLang) {
+                                    document.getElementById('language').value = savedLang;
+                                    changeLanguage(savedLang);
+                                }
+                                
+                                // 初始化翻译服务
+                                translate.selectLanguageTag.show = false; // 隐藏默认的语言选择器
+                                translate.service.use('client.edge'); // 使用Edge翻译服务
+                                translate.execute(); // 执行翻译
+                            });
+                        </script>
+                        <!-- 自带选择器隐藏 -->
+                        <style>
+                            #translate{
+                                display:none;
+                            }
+                        </style>
                     </div>
                 </li>
                 <li class="theme-switch">
@@ -287,9 +356,9 @@
                     <select id="paymentMethod" name="paymentMethod" required onchange="handlePaymentMethodChange()">
                         <option value="">请选择支付方式</option>
                         <option value="online">在线支付</option>
-                        <option value="bank">银行转账</option>
-                        <option value="alipay">支付宝</option>
-                        <option value="wechat">微信支付</option>
+                        <!-- <option value="bank">银行转账</option> -->
+                        <!-- <option value="alipay">支付宝</option>
+                        <option value="wechat">微信支付</option> -->
                     </select>
                 </div>
 
@@ -297,7 +366,11 @@
                 <div id="paymentInfoSection" class="payment-info-section" style="display: none;">
                     <div class="payment-info-container">
                         <h3 class="payment-title">支付账户信息</h3>
-                        <!-- 支付宝信息 -->
+
+                        
+                        <!-- 暂时注释掉支付宝和微信支付
+                         支付宝信息 -->
+                        <!-- 
                         <div id="alipayInfo" class="payment-details" style="display: none;">
                             <div class="payment-header">
                                 <i class="fab fa-alipay payment-icon"></i>
@@ -317,13 +390,13 @@
                                     </div>
                                 </div>
                                 <div class="qr-code-container">
-                                    <img src="path/to/alipay-qr.jpg" alt="支付宝二维码">
+                                    <img src="./img/image.png" alt="支付宝二维码">
                                     <p>扫码支付</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- 微信支付信息 -->
+                        微信支付信息 
                         <div id="wechatInfo" class="payment-details" style="display: none;">
                             <div class="payment-header">
                                 <i class="fab fa-weixin payment-icon"></i>
@@ -338,14 +411,15 @@
                                     </div>
                                 </div>
                                 <div class="qr-code-container">
-                                    <img src="path/to/wechat-qr.jpg" alt="微信支付二维码">
+                                    <img src="./img/image.png" alt="微信支付二维码">
                                     <p>扫码支付</p>
                                 </div>
                             </div>
                         </div>
+                        -->
                         
                         <!-- 银行账户信息 -->
-                        <div id="bankInfo" class="payment-details" style="display: none;">
+                        <!-- <div id="bankInfo" class="payment-details" style="display: none;">
                             <div class="payment-header">
                                 <i class="fas fa-university payment-icon"></i>
                                 <h4>银行转账</h4>
@@ -364,12 +438,12 @@
                                     </div>
                                     <div class="info-row">
                                         <i class="fas fa-credit-card"></i>
-                                        <span class="label">账号：</span>
+                                        <span class="label">账 号：</span>
                                         <span class="value">6222 **** **** 1234</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- 在线支付信息 -->
                         <div id="onlineInfo" class="payment-details" style="display: none;">
@@ -378,30 +452,18 @@
                                 <h4>在线支付</h4>
                             </div>
                             <div class="payment-content">
-                                <div class="online-payment-options">
-                                    <div class="payment-card">
-                                        <input type="radio" id="visa" name="onlinePayment" value="visa">
-                                        <label for="visa">
-                                            <img src="path/to/visa-logo.png" alt="Visa">
-                                        </label>
-                                    </div>
-                                    <div class="payment-card">
-                                        <input type="radio" id="mastercard" name="onlinePayment" value="mastercard">
-                                        <label for="mastercard">
-                                            <img src="path/to/mastercard-logo.png" alt="Mastercard">
-                                        </label>
-                                    </div>
-                                    <div class="payment-card">
-                                        <input type="radio" id="paypal" name="onlinePayment" value="paypal">
-                                        <label for="paypal">
-                                            <img src="path/to/paypal-logo.png" alt="PayPal">
-                                        </label>
+                                <div class="supported-cards">
+                                    <p>支持以下支付方式：</p>
+                                    <div class="card-icons">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-paypal"></i>
                                     </div>
                                 </div>
                                 <div class="payment-action">
                                     <button type="button" class="proceed-payment-btn">
                                         <i class="fas fa-lock"></i>
-                                        安全支付
+                                        在线安全支付
                                     </button>
                                 </div>
                             </div>

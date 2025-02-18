@@ -180,41 +180,29 @@ document.addEventListener('DOMContentLoaded', initMobileNav);
 
 // 处理支付方式切换的函数
 function handlePaymentMethodChange() {
-    const paymentMethod = document.getElementById('paymentMethod');
+    const paymentMethod = document.getElementById('paymentMethod').value;
     const paymentInfoSection = document.getElementById('paymentInfoSection');
-    const onlineInfo = document.getElementById('onlineInfo');
-    const alipayInfo = document.getElementById('alipayInfo');
-    const wechatInfo = document.getElementById('wechatInfo');
     const bankInfo = document.getElementById('bankInfo');
-
-    // 首先隐藏所有支付信息
-    onlineInfo.style.display = 'none';
-    alipayInfo.style.display = 'none';
-    wechatInfo.style.display = 'none';
-    bankInfo.style.display = 'none';
-
-    // 根据选择的支付方式显示对应信息
-    if (paymentMethod.value) {
+    const onlineInfo = document.getElementById('onlineInfo');
+    
+    // 首先隐藏支付信息区域
+    paymentInfoSection.style.display = 'none';
+    
+    // 隐藏所有支付详情
+    if (bankInfo) bankInfo.style.display = 'none';
+    if (onlineInfo) onlineInfo.style.display = 'none';
+    // 根据选择显示相应的支付信息
+    if (paymentMethod) {
         paymentInfoSection.style.display = 'block';
         
-        switch (paymentMethod.value) {
-            case 'online':
-                onlineInfo.style.display = 'block';
-                break;
-            case 'alipay':
-                alipayInfo.style.display = 'block';
-                break;
-            case 'wechat':
-                wechatInfo.style.display = 'block';
-                break;
+        switch(paymentMethod) {
             case 'bank':
-                bankInfo.style.display = 'block';
+                if (bankInfo) bankInfo.style.display = 'block';
                 break;
-            default:
-                paymentInfoSection.style.display = 'none';
+            case 'online':
+                if (onlineInfo) onlineInfo.style.display = 'block';
+                break;
         }
-    } else {
-        paymentInfoSection.style.display = 'none';
     }
 }
 
