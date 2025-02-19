@@ -282,4 +282,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 初始化表单验证
     validateOrderForm();
-}); 
+});
+
+// 回到顶部按钮控制
+function initBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', () => {
+        // 当页面滚动超过300px时显示按钮
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    // 点击按钮滚动回顶部
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// 在页面加载完成后初始化回到顶部按钮
+document.addEventListener('DOMContentLoaded', initBackToTop); 

@@ -22,6 +22,7 @@
     <meta name="twitter:title" content="一起发展服饰公司 - 专业服装定制">
     <meta name="twitter:description" content="一起发展服饰公司提供量身定制服务，为客户量身打造独特的时尚衣橱。">
     <meta name="twitter:image" content="path/to/your-image.jpg">    
+    <link rel="icon" href="./img/logo.ico" />
     <link rel="stylesheet" href="css/style.css">
     <!-- 引入字体图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -33,7 +34,8 @@
     <!-- 导航栏 -->
     <header class="header">
         <div class="logo-container">
-            <span class="company-name" id="menuToggle">一起发展服饰</span>
+            <img src="./img/logo.ico" alt="logo" style="width: 50px;height: 50px;">
+            <span class="company-name" id="menuToggle" >一起发展服饰</span>
         </div>
         
         <nav class="nav-menu">
@@ -93,6 +95,10 @@
                                 translate.selectLanguageTag.show = false; // 隐藏默认的语言选择器
                                 translate.service.use('client.edge'); // 使用Edge翻译服务
                                 translate.execute(); // 执行翻译
+                                const navMenu = document.querySelector('.nav-menu');
+                                if (navMenu) {
+                                    navMenu.classList.remove('active');
+                                }
                             });
                         </script>
                         <!-- 自带选择器隐藏 -->
@@ -624,7 +630,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>安徽省合肥市高新区长江西路昌河科创大厦403室</p>
+                    <p>安徽省合肥市高新区长江西路</p>
                 </div>
             </div>
             <form id="contactForm">
@@ -723,11 +729,15 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 优雅时尚. 保留所有权利</p>
+                <p>&copy; 2024 一起发展服饰公司 保留所有权利</p>
             </div>
         </div>
     </footer>
 
+    <!-- 在 body 标签结束前添加 -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript 文件 -->
     <script src="js/main.js"></script>
